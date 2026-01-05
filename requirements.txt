@@ -1,0 +1,9 @@
+streamlit==1.37.1
+streamlit-calendar==1.2.1
+pandas==2.2.2
+SQLAlchemy==2.0.32
+passlib[bcrypt]==1.7.4
+
+Pillow==10.4.0
+pytesseract==0.3.10
+streamlit-mic-recorder==0.0.2
