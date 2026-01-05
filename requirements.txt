@@ -1,6 +1,6 @@
 streamlit==1.37.1
 streamlit-calendar==1.2.1
-pandas==2.2.2
+pandas>=2.2.2
 SQLAlchemy==2.0.32
 passlib[bcrypt]==1.7.4
 
