@@ -96,14 +96,20 @@ with st.sidebar.expander("📷 Kamera: Termin abfotografieren (OCR)", expanded=F
 # --- Sprache ---
 with st.sidebar.expander("🎙️ Sprache: Termin diktieren", expanded=False):
     st.caption("Beispiel: „Arzttermin am 12.01. um 15:00 bis 16:00 für Mama“")
-    transcript = speech_to_text(
-        language="de",
-        start_prompt="Aufnahme starten",
-        stop_prompt="Stop",
-        just_once=True,
-        use_container_width=True,
-        key="stt"
-    )
+
+    try:
+        transcript = speech_to_text(
+            language="de",
+            start_prompt="Aufnahme starten",
+            stop_prompt="Stop",
+            just_once=True,
+            use_container_width=True,
+            key="stt"
+        )
+    except Exception:
+        transcript = None
+        st.info("Spracheingabe ist auf diesem Gerät aktuell nicht verfügbar.")
+
     if transcript:
         st.text_area("Transkript", value=transcript, height=120)
         if st.button("Als Termin-Vorschlag übernehmen", key="apply_stt"):
