@@ -20,13 +20,13 @@ class SpecialDay(Base):
     start = Column(DateTime, nullable=False)
     end = Column(DateTime, nullable=False)        # end exklusiv bei All-Day Events
 
-def get_engine(db_path="data/calendar.db"):
+def get_engine(db_path="calendar.db"):
     return create_engine(
         f"sqlite:///{db_path}",
         connect_args={"check_same_thread": False}
     )
 
-def get_session(db_path="data/calendar.db"):
+def get_session(db_path="calendar.db"):
     engine = get_engine(db_path)
     Base.metadata.create_all(engine)
     return sessionmaker(bind=engine)()
